@@ -56,24 +56,36 @@ function SetStats(data) {
             textReference.textContent = 'Dropping frames!';
             const iconContainer = document.querySelector('.upload-bars-image');
             if (data.OutputCongestion > 0.9) {
-                connectionBarIcon.style.clipPath = 'inset(0 14px 0 0)';
-                iconContainer.style.color = 'rgb(255, 0, 0)';
+                document.getElementById('connection_issue_icon1').style.display = "block";
+                document.getElementById('connection_issue_icon2').style.display = "none";
+                document.getElementById('connection_issue_icon3').style.display = "none";
+                document.getElementById('connection_issue_icon4').style.display = "none";
             }
             else if (data.OutputCongestion > 0.50) {
-                connectionBarIcon.style.clipPath = 'inset(0 9px 0 0)';
-                iconContainer.style.color = 'rgb(255, 64, 0)';
+                document.getElementById('connection_issue_icon1').style.display = "none";
+                document.getElementById('connection_issue_icon2').style.display = "block";
+                document.getElementById('connection_issue_icon3').style.display = "none";
+                document.getElementById('connection_issue_icon4').style.display = "none";
             }
             else if (data.OutputCongestion > 0.25) {
-                connectionBarIcon.style.clipPath = 'inset(0 5px 0 0)';
-                iconContainer.style.color = 'rgb(255, 128, 0)';
+                document.getElementById('connection_issue_icon1').style.display = "none";
+                document.getElementById('connection_issue_icon2').style.display = "none";
+                document.getElementById('connection_issue_icon3').style.display = "block";
+                document.getElementById('connection_issue_icon4').style.display = "none";
             }
             else {
-                connectionBarIcon.style.clipPath = 'none';
-                iconContainer.style.color = 'rgb(255, 255, 0)';
+                document.getElementById('connection_issue_icon1').style.display = "none";
+                document.getElementById('connection_issue_icon2').style.display = "none";
+                document.getElementById('connection_issue_icon3').style.display = "none";
+                document.getElementById('connection_issue_icon4').style.display = "block";
             }
             break;
         case 'SkippedFrames':
             textReference.textContent = 'Skipping frames!';
+            document.getElementById('connection_issue_icon1').style.display = "none";
+            document.getElementById('connection_issue_icon2').style.display = "none";
+            document.getElementById('connection_issue_icon3').style.display = "none";
+            document.getElementById('connection_issue_icon4').style.display = "none";
             break;
     }
 }
@@ -81,12 +93,15 @@ function SetStats(data) {
 function HideBar() {
     if (state !== "Hidden") {
         uploadStatContainer.classList.add('upload-stat-fade-out');
-        connectionBarIcon.style.display = 'none';
+        document.getElementById('connection_issue_icon1').style.display = "none";
+        document.getElementById('connection_issue_icon2').style.display = "none";
+        document.getElementById('connection_issue_icon3').style.display = "none";
+        document.getElementById('connection_issue_icon4').style.display = "none";
         state = "Hidden";
     }
 }
 
-const debug = false;
+const debug = true;
 
 sbClient.on('General.Custom', (data) => {
     if (data === null || data.data === null) return;

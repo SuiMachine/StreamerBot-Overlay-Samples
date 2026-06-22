@@ -1,0 +1,48 @@
+.ads-bar-container {
+    position: absolute;
+    top: 16px;
+    width: 400px;
+    height: 40px;
+    outline: dashed;
+    outline-width: 1px;
+    outline-color: #60ff41;
+    border-radius: 5px;
+}
+
+.abs-bar-bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px #0006;
+    background-color: rgba(15, 15, 15, 0.7);
+}
+
+.ads-bar-fill {
+    height: 100%;
+    width: 100%;
+    will-change: width;
+    background-color: rgba(0, 117, 0, 1);
+}
+
+.ads-fade-out {
+    opacity: 0;
+    transform: translate(0px, -50px);
+    transition: opacity 0.8s ease, transform 0.8s ease-in;
+}
+
+.ads-time-text {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 2px 6px #0008;
+    pointer-events: none;
+    z-index: 2;
+}

@@ -5,6 +5,7 @@
     <script src="./include/streamerbot-client.js"></script>
     <title>StreamerBot Overlay - Dropped/Skipped frames</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/ads.css">
 </head>
 
 <body>
@@ -13,27 +14,29 @@
             <div class="upload-stat-fill" id="upload-stat-fill"></div>
         </div>
         <div class="upload-stat-text">
-            <span id="upload-stat-time"></span>
-            <span class="upload-bars-image-container"><span class="upload-bars-image"><svg width="18" height="18"
-                        viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <rect style="fill:currentColor;stroke-width:0.0619371" width="28" height="32" x="2.1166666"
-                                y="96" />
-                            <rect style="fill:currentColor;stroke-width:0.0875923" width="28" height="64" x="34.116669"
-                                y="64" />
-                            <rect style="fill:currentColor;stroke-width:0.107278" width="28" height="96" x="66.116669"
-                                y="32" />
-                            <rect style="fill:currentColor;stroke-width:0.123874" width="28" height="128" x="98.116669"
-                                y="0" />
-                        </g>
-                    </svg></span></span>
+            <span id="upload-stat-time">Dropping frames</span>
+            <span class="upload-bars-image-container">
+                <img src="./images/stream_issues/1.png" class="upload-bars-image" id="connection_issue_icon1"></img>
+                <img src="./images/stream_issues/2.png" class="upload-bars-image" id="connection_issue_icon2"></img>
+                <img src="./images/stream_issues/3.png" class="upload-bars-image" id="connection_issue_icon3"></img>
+                <img src="./images/stream_issues/4.png" class="upload-bars-image" id="connection_issue_icon4"></img>
+            </span>
         </div>
     </div>
     <div class="notifications-container" id="notifications-container"></div>
     <script type="module">
         import { sbClient } from './include/ws-client.js';
+        import './include/ads.js';
         import './include/upload-stat.js';
     </script>
+    <script>
+        document.getElementById('ads-bar-container').classList.add('ads-fade-out');
+        document.getElementById('message-queue-area').classList.add('message-queue-hide');
+        document.getElementById('connection_issue_icon2').style.display = "none";
+        document.getElementById('connection_issue_icon3').style.display = "none";
+        document.getElementById('connection_issue_icon4').style.display = "none";
+    </script>
+
 </body>
 
 </html>
