@@ -26,12 +26,9 @@
     <div class="notifications-container" id="notifications-container"></div>
     <script type="module">
         import { sbClient } from './include/ws-client.js';
-        import './include/ads.js';
         import './include/upload-stat.js';
     </script>
     <script>
-        document.getElementById('ads-bar-container').classList.add('ads-fade-out');
-        document.getElementById('message-queue-area').classList.add('message-queue-hide');
         document.getElementById('connection_issue_icon2').style.display = "none";
         document.getElementById('connection_issue_icon3').style.display = "none";
         document.getElementById('connection_issue_icon4').style.display = "none";
