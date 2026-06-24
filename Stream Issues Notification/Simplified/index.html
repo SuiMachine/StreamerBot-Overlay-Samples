@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="./include/streamerbot-client.js"></script>
+    <title>StreamerBot Overlay - Dropped/Skipped frames</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/ads.css">
+</head>
+
+<body>
+    <div class="upload-stat-container" id="upload-stat-container">
+        <div class="upload-stat-text">
+            <span id="upload-stat-time">Dropping frames</span>
+            <span class="upload-bars-image-container">
+                <img src="./images/stream_issues/1.png" class="upload-bars-image" id="connection_issue_icon1"></img>
+                <img src="./images/stream_issues/2.png" class="upload-bars-image" id="connection_issue_icon2"></img>
+                <img src="./images/stream_issues/3.png" class="upload-bars-image" id="connection_issue_icon3"></img>
+                <img src="./images/stream_issues/4.png" class="upload-bars-image" id="connection_issue_icon4"></img>
+            </span>
+        </div>
+    </div>
+    <div class="notifications-container" id="notifications-container"></div>
+    <script type="module">
+        import { sbClient } from './include/ws-client.js';
+        import './include/upload-stat.js';
+    </script>
+    <script>
+        document.getElementById('connection_issue_icon2').style.display = "none";
+        document.getElementById('connection_issue_icon3').style.display = "none";
+        document.getElementById('connection_issue_icon4').style.display = "none";
+    </script>
+
+</body>
+
+</html>
